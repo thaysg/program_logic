@@ -1,3 +1,5 @@
+import 'dart:math';
+
 //Exercicio 1
 /*
   Escreva um algoritmo que leia dois números inteiros e compare-os, mostrando
@@ -483,7 +485,6 @@ Ex: Digite um valor: 5
 }
  */
 
-
 //-----------------------------------------------------------------------------
 //Exercicio 22
 /*
@@ -502,7 +503,6 @@ atribuindo diretamente) um vetor numérico com 10 posições, conforme abaixo:
   print(list);
 } */
 
-
 //-----------------------------------------------------------------------------
 //Exercicio 23
 /*
@@ -520,7 +520,6 @@ atribuindo diretamente) um vetor numérico com 10 posições, conforme abaixo:
   }
   print(list);
 } */
-
 
 //-----------------------------------------------------------------------------
 //Exercicio 24
@@ -541,7 +540,6 @@ os valores ordenados.
   list.sort();
   print('Os números ordenados são: $list');
 } */
-
 
 //-----------------------------------------------------------------------------
 //Exercicio 25
@@ -564,3 +562,34 @@ elementos da sequência de Fibonacci:
   }
   print(list);
 } */
+
+//-----------------------------------------------------------------------------
+//Exercicio 26
+//Armstrong Numbers
+
+import 'dart:math';
+
+class ArmstrongNumbers {
+  bool isArmstrongNumber(int number) {
+    int numberLength = number.toString().length;
+    int numberCopy = number;
+    num sum = 0;
+    while (numberCopy > 0) {
+      int digit = numberCopy % 10;
+      sum += pow(digit, numberLength);
+      numberCopy = numberCopy ~/ 10;
+    }
+    return sum == number;
+  }
+}
+
+final armstrongNumbers = ArmstrongNumbers();
+void main() {
+  for (var number in [0, 9, 10, 153, 154, 370, 371, 407, 1634, 8208, 9474]) {
+    if (armstrongNumbers.isArmstrongNumber(number)) {
+      print("$number is armstrong number");
+    } else {
+      print("$number is not Armstrong number");
+    }
+  }
+}
