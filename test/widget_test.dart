@@ -1,31 +1,44 @@
-/* // This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+/* import 'package:program_logic/main.dart';
+import 'package:test/test.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:program_logic/main.dart';
+final spaceAge = SpaceAge();
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('SpaceAge', ageOnPlanetTests);
+}
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+void ageOnPlanetTests() {
+  test('age on Earth', () {
+    expect(spaceAge.age(planet: 'Earth', seconds: 1000000000), equals(31.69));
+  }, skip: false);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  test('age on Mercury', () {
+    expect(
+        spaceAge.age(planet: 'Mercury', seconds: 2134835688), equals(280.88));
+  }, skip: true);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+  test('age on Venus', () {
+    expect(spaceAge.age(planet: 'Venus', seconds: 189839836), equals(9.78));
+  }, skip: true);
+
+  test('age on Mars', () {
+    expect(spaceAge.age(planet: 'Mars', seconds: 2129871239), equals(35.88));
+  }, skip: true);
+
+  test('age on Jupiter', () {
+    expect(spaceAge.age(planet: 'Jupiter', seconds: 901876382), equals(2.41));
+  }, skip: true);
+
+  test('age on Saturn', () {
+    expect(spaceAge.age(planet: 'Saturn', seconds: 2000000000), equals(2.15));
+  }, skip: true);
+
+  test('age on Uranus', () {
+    expect(spaceAge.age(planet: 'Uranus', seconds: 1210123456), equals(0.46));
+  }, skip: true);
+
+  test('age on Neptune', () {
+    expect(spaceAge.age(planet: 'Neptune', seconds: 1821023456), equals(0.35));
+  }, skip: true);
 }
  */

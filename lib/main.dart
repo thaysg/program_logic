@@ -1,6 +1,5 @@
 //Prova
 
-
 /*
 A partir das expressões mencionadas, assinale qual a
 sequência correta de resultados, através dos seguintes
@@ -213,4 +212,87 @@ fimAlgoritmo
     cont++;
   }
   print(res);
+} */
+
+/* void main() {
+  int year = 1996;
+  print(isLeapYear(year));
+}
+
+int isLeapYear(int year) {
+  if (year % 4 == 0) {
+    if (year % 100 == 0) {
+      if (year % 400 == 0) {
+        print('$year it is a leap year');
+      } else {
+        print('$year not a leap year');
+      }
+    }
+  } else {
+    print('$year not a leap year');
+  }
+  return year;
+} */
+
+/*
+Given a phrase, count the occurrences of each word in that phrase.
+
+For the purposes of this exercise you can expect that a word will always be one of:
+
+A number composed of one or more ASCII digits (ie "0" or "1234") OR
+A simple word composed of one or more ASCII letters (ie "a" or "they") OR
+A contraction of two simple words joined by a single apostrophe (ie "it's" or "they're")
+When counting words you can assume the following rules:
+
+The count is case insensitive (ie "You", "you", and "YOU" are 3 uses of the same word)
+The count is unordered; the tests will ignore how words and counts are ordered
+Other than the apostrophe in a contraction all forms of punctuation are ignored
+The words can be separated by any form of whitespace (ie "\t", "\n", " ")
+For example, for the phrase "That's the password: 'PASSWORD 123'!", cried the Special Agent.\nSo I fled. the count would be:
+
+that's: 1
+the: 2
+password: 2
+123: 1
+cried: 1
+special: 1
+agent: 1
+so: 1
+i: 1
+fled: 1
+*/
+
+/* void main() {
+  String phrase =
+      "That's the password: 'PASSWORD 123'!, cried the Special Agent.\nSo I fled";
+  Map<String, int> map = {};
+  List<String> words = phrase.split(RegExp(r'^[a-zA-Z0-9]+$'));
+  for (String word in words) {
+    if (word.isNotEmpty) {
+      if (map.containsKey(word)) {
+        map[word]! + 1;
+        print(map[word]);
+      } else {
+        map[word] = 1;
+      }
+    }
+  }
+  print(map);
+} */
+
+/* void main() {
+  Map<String, int> countWords(String text) {
+    var wordMap = <String, int>{};
+    text
+        .toLowerCase()
+        .split(RegExp(
+            r"'(?=\s)|\s'(?=\w)|[^\w']")) // split by left apostrophe or right apostrophe or nonwords
+        .where((item) => item.isEmpty)
+        .forEach((item) =>
+            wordMap[item] = wordMap.containsKey(item) ? wordMap[item]! + 1 : 1);
+    return wordMap;
+  }
+
+  print(countWords(
+      "That's the password: 'PASSWORD 123'!, cried the Special Agent.\nSo I fled"));
 } */
